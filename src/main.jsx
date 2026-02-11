@@ -5,6 +5,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Home from "./components/Home/Home.jsx";
 import ThemeProvider from "./components/Theme/ThemeProvider.jsx";
 import Contact from "./components/Contact/Contact.jsx";
+import AboutMe from "./components/AboutMe/AboutMe.jsx";
 
 const router = createBrowserRouter([
   {
@@ -18,6 +19,18 @@ const router = createBrowserRouter([
       {
         path: "/contact",
         element: <Contact />,
+      },
+      {
+        path: "/about",
+        element: <AboutMe />,
+      },
+      {
+        path: "/projects",
+        element: (
+          <div className="min-h-screen flex items-center justify-center text-2xl">
+            Projects Page - Coming Soon!
+          </div>
+        ),
       },
     ],
   },
