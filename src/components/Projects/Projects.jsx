@@ -45,7 +45,7 @@ const Projects = () => {
   }, []);
 
   return (
-    <div className="min-h-screen px-4 sm:px-20 py-12 bg-[var(--bg-primary)] text-[var(--text-primary)] transition-colors duration-300">
+    <div className="min-h-screen px-4 sm:px-20 py-12 bg-[var(--bg-primary)] text-[var(--text-primary)] transition-colors duration-300 mb-12">
       {/* Header Section */}
       <div id="project_header" className="mb-12 text-center lg:text-left">
         <h1 className="text-2xl sm:text-4xl font-extrabold mb-3">

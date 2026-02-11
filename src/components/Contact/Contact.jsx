@@ -134,7 +134,7 @@ const Contact = () => {
   }, []);
 
   return (
-    <div className="min-h-screen flex items-center justify-center --bg-primary px-4 py-10">
+    <div className="min-h-screen flex items-center justify-center --bg-primary px-4 py-10 mb-12">
       <div className="w-full max-w-6xl --bg-secondary shadow-xl rounded-lg p-8 md:p-16 grid md:grid-cols-2 gap-12">
         {/* LEFT SIDE */}
         <div className="space-y-6">
