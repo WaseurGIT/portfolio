@@ -3,7 +3,7 @@ import { GrProjects } from "react-icons/gr";
 import { IoIosContact, IoMdSunny } from "react-icons/io";
 import { IoMailOpenOutline, IoMoon } from "react-icons/io5";
 import { TiHomeOutline } from "react-icons/ti";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { ThemeContext } from "../Theme/ThemeProvider";
 import logo from "../../assets/logo.png";
 const Navbar = () => {
@@ -12,17 +12,17 @@ const Navbar = () => {
   const links = [
     { path: "/", label: "Home", icon: <TiHomeOutline className="text-2xl" /> },
     {
-      path: "/about",
+      path: "about",
       label: "About Me",
       icon: <IoIosContact className="text-2xl" />,
     },
     {
-      path: "/projects",
+      path: "projects",
       label: "Projects",
       icon: <GrProjects className="text-2xl" />,
     },
     {
-      path: "/contact",
+      path: "contact",
       label: "Contact",
       icon: <IoMailOpenOutline className="text-2xl" />,
     },
@@ -46,16 +46,20 @@ const Navbar = () => {
         {/* Links */}
         <div className="flex items-center justify-center gap-10 sm:gap-8 flex-1 mx-4">
           {links.map((link) => (
-            <Link
+            <NavLink
               key={link.path}
               to={link.path}
-              className="relative flex flex-col items-center justify-center transition-all duration-300 text-[var(--text-primary)] hover:text-orange-400 group"
+              className={({ isActive }) =>
+                `relative flex flex-col items-center justify-center transition-all duration-300 text-[var(--text-primary)] hover:text-orange-400 group ${
+                  isActive ? "text-orange-400" : ""
+                }`
+              }
             >
               <span className="text-2xl">{link.icon}</span>
               <span className="absolute bottom-full mb-2 px-2 py-1 bg-gray-800 text-white text-xs rounded opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap pointer-events-none">
                 {link.label}
               </span>
-            </Link>
+            </NavLink>
           ))}
         </div>
 
