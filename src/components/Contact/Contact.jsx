@@ -8,6 +8,9 @@ import { FiMail } from "react-icons/fi";
 import { useRef } from "react";
 import emailjs from "@emailjs/browser";
 import Swal from "sweetalert2";
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
+import { FaX, FaXTwitter } from "react-icons/fa6";
 
 const Contact = () => {
   const form = useRef();
@@ -55,38 +58,121 @@ const Contact = () => {
       "_blank",
     );
   };
+  const handleTwitterClick = () => {
+    window.open("https://twitter.com/WaseurRahman31", "_blank");
+  };
+
+  useGSAP(() => {
+    gsap.fromTo(
+      "#get_in_touch",
+      {
+        opacity: 0,
+        y: 20,
+      },
+      {
+        opacity: 1,
+        y: 0,
+        duration: 1,
+        ease: "power3.out",
+      },
+    );
+    gsap.fromTo(
+      ".contact_description",
+      {
+        opacity: 0,
+        y: 20,
+      },
+      {
+        opacity: 1,
+        y: 0,
+        duration: 1,
+        ease: "power3.out",
+        stagger: 0.2,
+      },
+    );
+    gsap.fromTo(
+      "#email",
+      {
+        opacity: 0,
+        y: 20,
+      },
+      {
+        opacity: 1,
+        y: 0,
+        duration: 1,
+        ease: "power3.out",
+      },
+    );
+    gsap.fromTo(
+      "#social",
+      {
+        opacity: 0,
+        y: 20,
+      },
+      {
+        opacity: 1,
+        y: 0,
+        duration: 1,
+        ease: "power3.out",
+        delay: 0.5,
+      },
+    );
+    gsap.fromTo(
+      form.current,
+      {
+        opacity: 0,
+        y: 20,
+      },
+      {
+        opacity: 1,
+        y: 0,
+        duration: 1,
+        ease: "power3.out",
+        delay: 0.5,
+      },
+    );
+  }, []);
 
   return (
     <div className="min-h-screen flex items-center justify-center --bg-primary px-4 py-10">
       <div className="w-full max-w-6xl --bg-secondary shadow-xl rounded-lg p-8 md:p-16 grid md:grid-cols-2 gap-12">
         {/* LEFT SIDE */}
         <div className="space-y-6">
-          <h1 className="text-4xl md:text-5xl font-serif --text-primary">
+          <h1
+            id="get_in_touch"
+            className="text-4xl md:text-5xl font-serif --text-primary"
+          >
             Get in Touch
           </h1>
 
-          <p className="--text-secondary font-medium">
+          <p className="--text-secondary font-medium contact_description">
             I’d like to hear from you!
           </p>
 
-          <p className="--text-secondary max-w-sm">
+          <p className="--text-secondary max-w-sm contact_description">
             If you have any inquiries or just want to say hi, please use the
             contact form!
           </p>
 
           {/* Email */}
-          <div className="flex items-center gap-3 pt-6 --text-secondary">
+          <div
+            id="email"
+            className="flex items-center gap-3 pt-6 --text-secondary"
+          >
             <FiMail className="text-xl" />
             <span className="cursor-pointer">waseurrahman31@gmail.com</span>
           </div>
 
           {/* Social Icons */}
-          <div className="flex items-center gap-4 pt-4 --text-secondary">
+          <div
+            id="social"
+            className="flex items-center gap-4 pt-4 --text-secondary"
+          >
             <FaFacebookF
               onClick={handleFacebookClick}
               className="cursor-pointer hover:text-[#8b3f1f]"
             />
-            <FaInstagram className="cursor-pointer hover:text-[#8b3f1f]"/>
+            <FaInstagram className="cursor-pointer hover:text-[#8b3f1f]" />
             <FaGithub
               onClick={handleGithubClick}
               className="cursor-pointer hover:text-[#8b3f1f]"
@@ -95,12 +181,16 @@ const Contact = () => {
               onClick={handleLinkedinClick}
               className="cursor-pointer hover:text-[#8b3f1f]"
             />
+            <FaXTwitter
+              onClick={handleTwitterClick}
+              className="cursor-pointer hover:text-[#8b3f1f]"
+            />
           </div>
         </div>
 
         {/* RIGHT SIDE FORM */}
         <form ref={form} onSubmit={sendEmail} className="space-y-6">
-          {/* Name Row */}
+          {/* Name */}
           <div className="grid md:grid-cols-2 gap-6">
             <div>
               <label className="text-sm --text-secondary">First Name</label>

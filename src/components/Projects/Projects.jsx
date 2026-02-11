@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Project from "./Project";
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
 
 const Projects = () => {
   const [projects, setProjects] = useState([]);
@@ -11,10 +13,41 @@ const Projects = () => {
       .catch((err) => console.error("Error fetching projects:", err));
   }, []);
 
+  useGSAP(() => {
+    gsap.fromTo(
+      "#project_header",
+      {
+        opacity: 0,
+        y: 20,
+      },
+      {
+        opacity: 1,
+        y: 0,
+        duration: 1,
+        ease: "power3.out",
+      },
+    );
+    gsap.fromTo(
+      "#projects",
+      {
+        opacity: 0,
+        y: 20,
+      },
+      {
+        opacity: 1,
+        y: 0,
+        duration: 1,
+        ease: "power3.out",
+        delay: 0.5,
+        stagger: 0.2,
+      },
+    );
+  }, []);
+
   return (
     <div className="min-h-screen px-4 sm:px-20 py-12 bg-[var(--bg-primary)] text-[var(--text-primary)] transition-colors duration-300">
       {/* Header Section */}
-      <div className="mb-12 text-center lg:text-left">
+      <div id="project_header" className="mb-12 text-center lg:text-left">
         <h1 className="text-2xl sm:text-4xl font-extrabold mb-3">
           <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-purple-600">
             My Projects
@@ -24,10 +57,24 @@ const Projects = () => {
       </div>
 
       {/* Projects Grid */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-        {projects.map((project) => (
-          <Project key={project.id} project={project} />
-        ))}
+      <div id="projects" className="flex flex-col lg:flex-row gap-6 lg:gap-0">
+        {/* Left Column */}
+        <div className="flex-1 flex flex-col gap-6">
+          {projects.slice(0, Math.ceil(projects.length / 2)).map((project) => (
+            <Project key={project.id} project={project} />
+          ))}
+        </div>
+
+        <div className="hidden lg:flex lg:items-stretch lg:px-6 lg:py-4">
+          <div className="w-px bg-gradient-to-b from-transparent via-[var(--text-primary)] to-transparent opacity-30"></div>
+        </div>
+
+        {/* Right Column */}
+        <div className="flex-1 flex flex-col gap-6">
+          {projects.slice(Math.ceil(projects.length / 2)).map((project) => (
+            <Project key={project.id} project={project} />
+          ))}
+        </div>
       </div>
     </div>
   );

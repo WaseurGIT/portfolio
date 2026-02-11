@@ -1,3 +1,5 @@
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
 const AboutMe = () => {
   const skills = [
     "JavaScript",
@@ -18,6 +20,63 @@ const AboutMe = () => {
     // { label: "Companies Worked", value: "2" },
   ];
 
+  useGSAP(() => {
+    gsap.fromTo(
+      "#header",
+      {
+        opacity: 0,
+        y: 20,
+      },
+      {
+        opacity: 1,
+        y: 0,
+        duration: 1,
+        ease: "power3.out",
+      },
+    );
+    gsap.fromTo(
+      ".my_description",
+      {
+        opacity: 0,
+        y: 20,
+      },
+      {
+        opacity: 1,
+        y: 0,
+        duration: 1,
+        ease: "power3.out",
+        stagger: 0.2,
+      },
+    );
+    gsap.fromTo(
+      "#image",
+      {
+        opacity: 0,
+        x: 30,
+      },
+      {
+        opacity: 1,
+        x: 0,
+        duration: 1,
+        ease: "power3.out",
+      },
+    );
+    gsap.fromTo(
+      "#status",
+      {
+        opacity: 0,
+        y: 20,
+      },
+      {
+        opacity: 1,
+        y: 0,
+        duration: 1,
+        ease: "power3.out",
+        delay: 0.5,
+      },
+    );
+  }, []);
+
   return (
     <div className="relative overflow-hidden min-h-screen bg-[var(--bg-primary)] text-[var(--text-primary)] transition-colors duration-300">
       <div className="absolute top-0 right-0 -mr-20 -mt-20 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl pointer-events-none" />
@@ -25,7 +84,7 @@ const AboutMe = () => {
 
       <div className="container mx-auto px-6 sm:px-12 py-16 relative z-10">
         {/* Header Section */}
-        <div className="mb-12 text-center lg:text-left">
+        <div id="header" className="mb-12 text-center lg:text-left">
           <h2 className="text-lg text-blue-500 font-semibold tracking-wide uppercase mb-2">
             Who I am
           </h2>
@@ -41,17 +100,17 @@ const AboutMe = () => {
         <div className="flex flex-col-reverse lg:flex-row items-center gap-12 lg:gap-20">
           {/* Left Section */}
           <div className="flex-1 w-full">
-            <h3 className="text-2xl font-semibold mb-2">
+            <h3 className="text-2xl font-semibold mb-2 my_description">
               I'm Md. Waseur Rahman
             </h3>
 
-            <p className="text-[var(--text-secondary)] sm:text-lg mb-8 leading-relaxed opacity-90">
+            <p className="text-[var(--text-secondary)] sm:text-lg mb-8 leading-relaxed opacity-90 my_description">
               I am a passionate developer with experience in web and app
               development. I enjoy creating responsive, user-friendly interfaces
               and strictly focus on writing clean, maintainable code.
             </p>
 
-            <p className="text-[var(--text-secondary)] sm:text-lg mb-8 leading-relaxed opacity-90">
+            <p className="text-[var(--text-secondary)] sm:text-lg mb-8 leading-relaxed opacity-90 my_description">
               Bachelor of Science in Computer Science and Engineering from
               <span className="font-semibold bg-gradient-to-r from-blue-500 to-purple-600 text-transparent bg-clip-text">
                 {" "}
@@ -93,15 +152,19 @@ const AboutMe = () => {
 
           {/* Right Section*/}
           <div className="flex-1 flex justify-center lg:justify-end relative group">
-            <div className="relative w-64 sm:w-80 md:w-96 aspect-square">
+            <div id="image" className="relative w-64 sm:w-80 md:w-96 aspect-square">
               <div className="absolute inset-0 bg-gradient-to-tr from-blue-500 to-purple-600 rounded-[2rem] rotate-6 opacity-20 group-hover:rotate-12 transition-transform duration-500"></div>
               <img
+                
                 src="https://i.ibb.co.com/9mLHCN1r/image.png"
                 alt="Waseur Rahman"
                 className="relative w-full h-full object-cover rounded-[2rem] shadow-2xl border-4 border-[var(--bg-primary)] z-10 transition-transform duration-500 group-hover:scale-[1.02]"
               />
 
-              <div className="absolute -bottom-6 -left-6 z-20 bg-[var(--bg-primary)] px-4 py-2 rounded-xl shadow-xl border border-[var(--bg-secondary)] flex items-center gap-3 animate-bounce-slow">
+              <div
+                id="status"
+                className="absolute -bottom-6 -left-6 z-20 bg-[var(--bg-primary)] px-4 py-2 rounded-xl shadow-xl border border-[var(--bg-secondary)] flex items-center gap-3 animate-bounce-slow"
+              >
                 <div className="bg-green-100 p-2 rounded-full">
                   <svg
                     className="w-3 h-3 text-green-600"

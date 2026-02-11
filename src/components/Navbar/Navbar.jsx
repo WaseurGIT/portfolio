@@ -30,7 +30,7 @@ const Navbar = () => {
   ];
 
   return (
-    <div className="bg-[var(--bg-navbar)] py-2 w-full max-w-[450px] fixed bottom-4 left-1/2 -translate-x-1/2 rounded-full shadow-lg z-20 px-4 sm:px-0">
+    <div className="bg-[var(--bg-navbar)] py-4 w-full max-w-[450px] fixed bottom-4 left-1/2 -translate-x-1/2 rounded-full shadow-lg z-20 px-4 sm:px-0">
       <div>
         {/* logo */}
         <div></div>
