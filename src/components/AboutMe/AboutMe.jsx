@@ -29,7 +29,7 @@ const AboutMe = () => {
           <h2 className="text-lg text-blue-500 font-semibold tracking-wide uppercase mb-2">
             Who I am
           </h2>
-          <h1 className="text-2xl sm:text-4xl font-bold mb-6">
+          <h1 className="text-2xl sm:text-4xl font-bold mb-2">
             About{" "}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-purple-600">
               Me
@@ -41,16 +41,23 @@ const AboutMe = () => {
         <div className="flex flex-col-reverse lg:flex-row items-center gap-12 lg:gap-20">
           {/* Left Section */}
           <div className="flex-1 w-full">
-            <h3 className="text-2xl font-semibold mb-4">
+            <h3 className="text-2xl font-semibold mb-2">
               I'm Md. Waseur Rahman
             </h3>
 
-            <p className="text-[var(--text-secondary)] text-base sm:text-lg mb-8 leading-relaxed opacity-90">
+            <p className="text-[var(--text-secondary)] sm:text-lg mb-8 leading-relaxed opacity-90">
               I am a passionate developer with experience in web and app
               development. I enjoy creating responsive, user-friendly interfaces
-              and strictly focus on writing clean, maintainable code. My journey
-              involves constantly learning new technologies to solve real-world
-              problems.
+              and strictly focus on writing clean, maintainable code.
+            </p>
+
+            <p className="text-[var(--text-secondary)] sm:text-lg mb-8 leading-relaxed opacity-90">
+              Bachelor of Science in Computer Science and Engineering from
+              <span className="font-semibold bg-gradient-to-r from-blue-500 to-purple-600 text-transparent bg-clip-text">
+                {" "}
+                Bangladesh University of Business and Technology
+              </span>
+              .
             </p>
 
             <div className="grid grid-cols-3 gap-4 mb-8 border-y border-[var(--bg-secondary)] py-6">
