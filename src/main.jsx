@@ -6,14 +6,15 @@ import Home from "./components/Home/Home.jsx";
 import ThemeProvider from "./components/Theme/ThemeProvider.jsx";
 import Contact from "./components/Contact/Contact.jsx";
 import AboutMe from "./components/AboutMe/AboutMe.jsx";
+import Root from "./components/Root.jsx";
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Home />,
+    element: <Root />,
     children: [
       {
-        index: true,
+        index: "/",
         element: <Home />,
       },
       {
