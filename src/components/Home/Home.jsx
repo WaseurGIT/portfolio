@@ -1,12 +1,11 @@
-import React, { useContext } from "react";
 import Navbar from "../Navbar/Navbar";
-import { ThemeContext } from "../Theme/ThemeProvider";
+import { Outlet } from "react-router-dom";
 
 const Home = () => {
-  const { theme } = useContext(ThemeContext);
 
   return (
     <div className="min-h-screen bg-[var(--bg-primary)] text-[var(--text-primary)]">
+      <Outlet></Outlet>
       <div className="flex items-center justify-center">
         <Navbar />
       </div>
