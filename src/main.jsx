@@ -7,6 +7,7 @@ import ThemeProvider from "./components/Theme/ThemeProvider.jsx";
 import Contact from "./components/Contact/Contact.jsx";
 import AboutMe from "./components/AboutMe/AboutMe.jsx";
 import Root from "./components/Root.jsx";
+import Projects from "./components/Projects/Projects.jsx";
 
 const router = createBrowserRouter([
   {
@@ -27,11 +28,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/projects",
-        element: (
-          <div className="min-h-screen flex items-center justify-center text-2xl">
-            Projects Page - Coming Soon!
-          </div>
-        ),
+        element: <Projects/>
       },
     ],
   },
