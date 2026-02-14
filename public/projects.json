@@ -2,7 +2,7 @@
   {
     "id": 1,
     "title": "Pet Adoption",
-    "image": "../src/assets/pet_adoption.png",
+    "image": "https://i.ibb.co.com/bYkpxxm/image.png",
     "stacks": [
       "React",
       "TailwindCSS",
